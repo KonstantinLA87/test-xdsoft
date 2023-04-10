@@ -14,6 +14,10 @@ h3 {
   margin-bottom: 10px;
 }
 
+h3 span {
+  margin-left: 10px;
+}
+
 button {
   padding: 10px 20px;
   border: 1px solid rgb(168, 168, 168);
@@ -34,6 +38,7 @@ select {
 
 .Page {
   margin-top: 60px;
+  padding-bottom: 100px;
 }
 
 .moviesList {
@@ -55,8 +60,12 @@ select {
   transition: .2s;
 }
 
+.movieItem h3 {
+  margin-bottom: 5px;
+}
+
 .movieItem:hover {
-  background: #f8f8fa;
+  background: #fafafc;
 }
 
 .movieItem:hover button {
@@ -68,6 +77,11 @@ select {
   width: 150px;
   height: 200px;
   background: gray;
+}
+
+.movieItem__avatar img {
+  width: 100%;
+  height: 100%;
 }
 
 .movieItem__content {
@@ -92,21 +106,21 @@ select {
 
 /* Details */
 
-.movieDetails__plate {
+.movieDetails__card {
   width: 100%;
   background: #fff;
   border-radius: 8px;
 }
 
-.movieDetails__plate-top {
+.movieDetails__card-top {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   padding: 40px;
-  border-bottom: 1px solid rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
-.movieDetails__plate h1 {
+.movieDetails__card h1 {
   margin-bottom: 10px;
 }
 
@@ -135,7 +149,7 @@ select {
 }
 
 .movieDetails__bottom {
-  padding: 40px 40px 50px;
+  padding: 30px 40px 50px;
 }
 .movieDetails__carousel-wrap {
   display: flex;

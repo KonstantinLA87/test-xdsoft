@@ -10,19 +10,24 @@ export const FiltersBlock = memo((props: FiltersBlockProps) => {
   return (
     <div className="filtersBlock">
       <select 
-        name="year" 
-        id=""
-        className="shadow-md"
-        >
-        <option>2010</option>
-      </select>
-      <select 
         name="type" 
         id=""
         className="shadow-md"
       >
-        <option value="serial">Сериал</option>
-        <option value="movie">Фильм</option>
+        <option value="serial">Фильмы и сериалы</option>
+        <option value="serial">Только сериалы</option>
+        <option value="movie">Только фильмы</option>
+      </select>
+      <select 
+        name="year" 
+        id=""
+        className="shadow-md"
+        >
+        <option>Все года</option>
+        <option>2020-е</option>
+        <option>2010-е</option>
+        <option>2000-е</option>
+        <option>1990-е</option>
       </select>
     </div>
   );
