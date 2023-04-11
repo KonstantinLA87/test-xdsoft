@@ -2,14 +2,25 @@ import axios from "axios";
 import { MovieSchema } from "../models/MoviesSchema";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchMovies = createAsyncThunk(
+export const fetchMovies = createAsyncThunk<MovieSchema[]>(
   'movies/fetchAll',
-  async (_, thunkAPI) => {
+  async (_, thunkApi) => {
+    const { getState } = thunkApi;
+    // @ts-ignore
+    const years = getState().moviesReducer.years;
+    // @ts-ignore
+    const type = getState().moviesReducer.type;
+    
     try {
-      const response = await axios.get<MovieSchema[]>('http://localhost:3001/movies');
+      const response = await axios.get<MovieSchema[]>('http://localhost:3001/movies', {
+        params: {
+          _limit: years,
+          _page: type
+        }
+      });
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue('Не удалось загрузить список фильмов');
+      return thunkApi.rejectWithValue('Не удалось загрузить список фильмов');
     }
   }
 )

@@ -1,34 +1,47 @@
 // import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
+import { Select, SelectOption } from '../Select/Select';
+import { movieType, moviesYears } from '../../store/models/MoviesSchema';
 
 interface FiltersBlockProps {
   className?: string;
+  type: movieType;
+  years: moviesYears;
+  onChangeType: (newType: movieType) => void;
+  onChangeYears: (newYears: moviesYears) => void;
 }
 
 export const FiltersBlock = memo((props: FiltersBlockProps) => {
-  const {className} = props;
+  const {type, years, onChangeType, onChangeYears} = props;
+
+  const typeOptions = useMemo<SelectOption<movieType>[]>(() => [
+    {value: movieType.ALL, content: 'Фильмы и сериалы'},
+    {value: movieType.MOVIE, content: 'Только фильмы'},
+    {value: movieType.SERIAL, content: 'Только сериалы'},
+  ], []);
+
+  const yearsOptions = useMemo<SelectOption<moviesYears>[]>(() => [
+    {value: moviesYears.ALL, content: 'Все года'},
+    {value: moviesYears.Y2020, content: '2020-е'},
+    {value: moviesYears.Y2010, content: '2010-е'},
+    {value: moviesYears.Y2000, content: '2000-е'},
+    {value: moviesYears.Y1990, content: '1990-е'},
+  ], []);
+
   return (
     <div className="filtersBlock">
-      <select 
-        name="type" 
-        id=""
-        className="shadow-md"
-      >
-        <option value="all">Фильмы и сериалы</option>
-        <option value="movie">Только фильмы</option>
-        <option value="serial">Только сериалы</option>
-      </select>
-      <select 
-        name="year" 
-        id=""
-        className="shadow-md"
-        >
-        <option value="all">Все года</option>
-        <option value="2020">2020-е</option>
-        <option value="2010">2010-е</option>
-        <option value="2000">2000-е</option>
-        <option value="1990">1990-е</option>
-      </select>
+      <Select 
+        label="По типу:" 
+        options={typeOptions}
+        value={type}
+        onChange={onChangeType}
+      />
+      <Select 
+        label="По годам:" 
+        options={yearsOptions}
+        value={years}
+        onChange={onChangeYears}
+      />
     </div>
   );
 });
