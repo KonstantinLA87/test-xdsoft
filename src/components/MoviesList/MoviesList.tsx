@@ -14,7 +14,7 @@ export const MoviesList = memo((props: MoviesListProps) => {
 
   useEffect(() => {
     dispatch(fetchMovies());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="moviesList">

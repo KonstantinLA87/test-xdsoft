@@ -10,7 +10,7 @@ interface MovieItemProps {
 export const MovieItem = memo((props: MovieItemProps) => {
   const {movie} = props;
   return (
-    <Link to={'/details'} className="movieItem shadow-md">
+    <Link to={`/details/${movie.id}`} className="movieItem shadow-md">
       <div className="movieItem__avatar">
         <img src={movie.titlePhoto} alt="" />
       </div>

@@ -7,9 +7,9 @@ export const fetchMovies = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get<MovieSchema[]>('http://localhost:3001/movies');
-      return response.data;  
+      return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue('Не удалось загрузить фильмы')
+      return thunkAPI.rejectWithValue('Не удалось загрузить список фильмов');
     }
   }
 )
