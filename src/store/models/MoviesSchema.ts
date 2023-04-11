@@ -7,13 +7,13 @@ interface Team {
 }
 
 export enum movieType {
-  ALL = 'all',
+  ALL = '',
   MOVIE = 'movie',
-  SERIAL = 'сериал',
+  SERIAL = 'serial',
 }
 
 export enum moviesYears {
-  ALL = 'all',
+  ALL = '',
   Y2020 = '2020',
   Y2010 = '2010',
   Y2000 = '2000',
@@ -24,7 +24,7 @@ export interface MovieSchema {
   id: string,
   titlePhoto: string,
   title: string,
-  date: number,
+  date: string,
   type: movieType,
   overview: string,
   team: Team,

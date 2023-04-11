@@ -14,8 +14,8 @@ export const fetchMovies = createAsyncThunk<MovieSchema[]>(
     try {
       const response = await axios.get<MovieSchema[]>('http://localhost:3001/movies', {
         params: {
-          _limit: years,
-          _page: type
+          years: years || null,
+          type: type || null
         }
       });
       return response.data;
