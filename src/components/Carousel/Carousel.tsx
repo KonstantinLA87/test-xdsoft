@@ -29,7 +29,7 @@ export const Carousel = memo((props: CarouselProps) => {
       )}
       <h3 className="text-xl font-bold">Кадры из фильма</h3>
       <div className="movieDetails__carousel-wrap">
-        {images.map(image => (
+        {images && images.map(image => (
             <img 
               src={image} 
               alt="" 

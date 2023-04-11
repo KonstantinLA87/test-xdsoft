@@ -1,44 +1,38 @@
 import { memo, useEffect } from 'react';
 import { Carousel } from '../Carousel/Carousel';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { fetchMovies } from '../../store/reducers/ActionCreators';
-import { useParams } from 'react-router-dom';
 import { MovieDetailsCardSkeleton } from './MovieDetailsCardSkeleton';
-import { moviesActions } from '../../store/reducers/MoviesSlice';
+import { fetchMovieById } from '../../store/reducers/fetchMovieById';
 
 interface MovieDetailsCardProps {
   className?: string;
+  id: string;
 }
 
 export const MovieDetailsCard = memo((props: MovieDetailsCardProps) => {
+  const {id} = props;
   const dispatch = useAppDispatch();
-  const {movies, isLoading, error} = useAppSelector(state => state.moviesReducer);
-  const { id } = useParams<{id: string}>();
-  // @ts-ignore
-  const numId = id - 1;
-  const movie = movies[numId];
-  const team = movie?.team;
+  const {data, isLoading, error} = useAppSelector(state => state.movieDetailsReducer);
 
   useEffect(() => {
-    dispatch(moviesActions.initState());
-    dispatch(fetchMovies());
+    dispatch(fetchMovieById(id));
     window.scrollTo(0, 0);
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className="movieDetails__card shadow-md">
-      {(isLoading && !movies.length) && <MovieDetailsCardSkeleton/>}
+      {isLoading && <MovieDetailsCardSkeleton/>}
       {error && <h1>Фильм не найден</h1>}
-      {movies.length === 10 && (
+      {!isLoading && (
         <>
           <div className="movieDetails__card-top">
             <div className="movieDetails__avatar">
-              <img src={movie?.titlePhoto} alt="" />
+              <img src={data?.titlePhoto} alt="" />
             </div>
             <div className="movieItem__content">
-              <h1 className="text-2xl md:text-4xl font-black">{movie?.title}</h1>
-              <p className="movieDetails__date text-sm text-gray-500">{movie?.date}</p>
-              <p className="movieDetails__overview text-base">{movie?.overview}</p>
+              <h1 className="text-2xl md:text-4xl font-black">{data?.title}</h1>
+              <p className="movieDetails__date text-sm text-gray-500">{data?.date}</p>
+              <p className="movieDetails__overview text-base">{data?.overview}</p>
               <div className="movieDetails__team">
                 <h3 className="text-xl font-bold">Команда</h3>
                 <div className="movieDetails__team-wrap">
@@ -49,22 +43,20 @@ export const MovieDetailsCard = memo((props: MovieDetailsCardProps) => {
                     <li>Главные роли:</li>
                   </ul>
                   <ul className="ul2">
-                    <li>{team.director}</li>
-                    <li>{team.scenario}</li>
-                    <li>{team.operator}</li>
-                    <li>{team.roles.join(', ')}</li>
+                    <li>{data?.team.director}</li>
+                    <li>{data?.team.scenario}</li>
+                    <li>{data?.team.operator}</li>
+                    <li>{data?.team.roles.join(', ')}</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
           <div className="movieDetails__bottom">
-            <Carousel images={movie?.photos} />
+            {data?.photos && <Carousel images={data?.photos} />}
           </div>
-        </>
-      
+        </>      
       )}
-      
     </div>
   );
 });
