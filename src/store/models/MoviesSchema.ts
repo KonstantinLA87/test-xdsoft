@@ -1,4 +1,4 @@
-export interface Team {
+interface Team {
   director: string,
   producer: string,
   scenario: string,
@@ -6,12 +6,17 @@ export interface Team {
   roles: string[]
 }
 
+export enum movieType {
+  MOVIE = 'Фильм',
+  SERIAL = 'сериал',
+}
+
 export interface MovieSchema {
   id: string,
   titlePhoto: string,
   title: string,
-  date: string,
-  type: string,
+  date: number,
+  type: movieType,
   overview: string,
   team: Team,
   photos: string[],

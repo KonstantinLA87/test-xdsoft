@@ -14,20 +14,20 @@ export const FiltersBlock = memo((props: FiltersBlockProps) => {
         id=""
         className="shadow-md"
       >
-        <option value="serial">Фильмы и сериалы</option>
-        <option value="serial">Только сериалы</option>
+        <option value="all">Фильмы и сериалы</option>
         <option value="movie">Только фильмы</option>
+        <option value="serial">Только сериалы</option>
       </select>
       <select 
         name="year" 
         id=""
         className="shadow-md"
         >
-        <option>Все года</option>
-        <option>2020-е</option>
-        <option>2010-е</option>
-        <option>2000-е</option>
-        <option>1990-е</option>
+        <option value="all">Все года</option>
+        <option value="2020">2020-е</option>
+        <option value="2010">2010-е</option>
+        <option value="2000">2000-е</option>
+        <option value="1990">1990-е</option>
       </select>
     </div>
   );

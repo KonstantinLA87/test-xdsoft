@@ -29,6 +29,7 @@ button {
 select {
   padding: 10px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 /* TODO */
@@ -189,6 +190,7 @@ select {
   gap: 15px;
   overflow-y: hidden;
   overflow-x: scroll;
+  padding-bottom: 10px;
 }
 .movieDetails__carousel-wrap img {
   height: 150px;
