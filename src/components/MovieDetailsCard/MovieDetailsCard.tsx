@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { fetchMovies } from '../../store/reducers/ActionCreators';
 import { useParams } from 'react-router-dom';
 import { MovieDetailsCardSkeleton } from './MovieDetailsCardSkeleton';
+import { moviesActions } from '../../store/reducers/MoviesSlice';
 
 interface MovieDetailsCardProps {
   className?: string;
@@ -19,15 +20,16 @@ export const MovieDetailsCard = memo((props: MovieDetailsCardProps) => {
   const team = movie?.team;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    dispatch(moviesActions.initState());
     dispatch(fetchMovies());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   return (
     <div className="movieDetails__card shadow-md">
       {(isLoading && !movies.length) && <MovieDetailsCardSkeleton/>}
       {error && <h1>Фильм не найден</h1>}
-      {movies.length > 0 && (
+      {movies.length === 10 && (
         <>
           <div className="movieDetails__card-top">
             <div className="movieDetails__avatar">

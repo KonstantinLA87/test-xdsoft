@@ -28,6 +28,10 @@ export const moviesSlice = createSlice({
     setYears: (state, action: PayloadAction<moviesYears>) => {
       state.years = action.payload;
     },
+    initState: (state) => {
+      state.years = moviesYears.ALL
+      state.type = movieType.ALL
+    }
   },
   extraReducers: {
     [fetchMovies.pending.type]: (state) => {

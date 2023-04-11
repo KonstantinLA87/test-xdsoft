@@ -2,6 +2,7 @@ import { memo, useEffect } from 'react';
 import { MovieItem } from '../MovieItem/MovieItem';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { fetchMovies } from '../../store/reducers/ActionCreators';
+import { moviesActions } from '../../store/reducers/MoviesSlice';
 
 interface MoviesListProps {
   className?: string;
@@ -14,6 +15,7 @@ export const MoviesList = memo((props: MoviesListProps) => {
 
   useEffect(() => {
     dispatch(fetchMovies());
+    // dispatch(moviesActions.initState());
   }, [dispatch]);
 
   return (
