@@ -1,19 +1,14 @@
 import classNames from 'classnames';
 import { memo, useCallback } from 'react';
-import { Page } from '../../../components/Page/Page';
-import { FiltersBlock } from '../../../components/FiltersBlock/FiltersBlock';
-import { MoviesList } from '../../../components/MoviesList/MoviesList';
-import { movieType, moviesYears } from '../../../store/models/MoviesSchema';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
-import { moviesActions } from '../../../store/reducers/MoviesSlice';
-import { fetchMovies } from '../../../store/reducers/ActionCreators';
+import { Page } from 'widgets/Page/Page';
+import { moviesActions } from 'app/store/reducers/MoviesSlice';
+import { fetchMovies } from 'app/store/reducers/ActionCreators';
+import { FiltersBlock } from 'widgets/FiltersBlock/FiltersBlock';
+import { movieType, moviesYears } from 'app/store/models/MoviesSchema';
+import { useAppDispatch, useAppSelector } from 'app/store/hooks/redux';
+import { MoviesList } from 'entities/MoviesList/MoviesList';
 
-interface HomePageProps {
-  className?: string;
-}
-
-const HomePage = memo((props: HomePageProps) => {
-  const {className} = props;
+const HomePage = memo(() => {
   const dispatch = useAppDispatch();
   const {years, type} = useAppSelector(state => state.moviesReducer);
 
@@ -32,7 +27,7 @@ const HomePage = memo((props: HomePageProps) => {
   }, [dispatch, fetchData]);
   
   return (
-    <Page className={classNames('HomePage', {}, [className])}>
+    <Page>
       <h1 className="text-2xl sm:text-4xl font-black text-white">Топ-10 самых низкорейтинговых фильмов и сериалов</h1>
       <FiltersBlock
         type={type}

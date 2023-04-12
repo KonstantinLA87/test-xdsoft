@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
-import { MovieDetailsPage } from './pages/MovieDetailsPage';
-import { Navbar } from './components/Navbar/Navbar';
+import { HomePage } from '../pages/HomePage';
+import { MovieDetailsPage } from '../pages/MovieDetailsPage';
+import { Navbar } from '../widgets/Navbar/Navbar';
 
 function App() {
   return (

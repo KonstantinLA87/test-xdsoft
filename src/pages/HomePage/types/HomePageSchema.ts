@@ -1,4 +1,4 @@
-import { movieType, moviesYears } from "../../../store/models/MoviesSchema";
+import { movieType, moviesYears } from "app/store/models/MoviesSchema";
 
 export interface HomePageSchena {
   isLoading?: boolean;

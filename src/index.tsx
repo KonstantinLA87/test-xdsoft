@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Provider } from 'react-redux';
-import { setupStore } from './store/store';
+import { setupStore } from './app/store/store';
 
 const store = setupStore();
 

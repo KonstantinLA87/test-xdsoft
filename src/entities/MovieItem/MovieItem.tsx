@@ -1,11 +1,10 @@
-// import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from '../Button/Button';
+import { Button } from 'shared/ui/Button/Button';
+import { MovieSchema } from 'app/store/models/MoviesSchema';
 
 interface MovieItemProps {
-  className?: string;
-  movie: any;
+  movie: MovieSchema;
 }
 
 export const MovieItem = memo((props: MovieItemProps) => {

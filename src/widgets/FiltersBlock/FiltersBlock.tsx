@@ -1,7 +1,7 @@
 // import { classNames } from 'shared/lib/classNames/classNames';
+import { movieType, moviesYears } from 'app/store/models/MoviesSchema';
 import { memo, useMemo } from 'react';
-import { Select, SelectOption } from '../Select/Select';
-import { movieType, moviesYears } from '../../store/models/MoviesSchema';
+import { Select, SelectOption } from 'shared/ui/Select/Select';
 
 interface FiltersBlockProps {
   className?: string;

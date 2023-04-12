@@ -1,11 +1,10 @@
 import { memo, useEffect } from 'react';
-import { Carousel } from '../Carousel/Carousel';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { MovieDetailsCardSkeleton } from './MovieDetailsCardSkeleton';
-import { fetchMovieById } from '../../store/reducers/fetchMovieById';
+import { fetchMovieById } from 'app/store/reducers/fetchMovieById';
+import { useAppDispatch, useAppSelector } from 'app/store/hooks/redux';
+import { Carousel } from 'shared/ui/Carousel/Carousel';
 
 interface MovieDetailsCardProps {
-  className?: string;
   id: string;
 }
 
