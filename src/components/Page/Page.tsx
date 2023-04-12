@@ -9,8 +9,8 @@ interface PageProps {
 export const Page = memo((props: PageProps) => {
   const {className, children} = props;
   return (
-    <div>
-      <div className="Page container mx-auto">
+    <div className="mt-10 sm:mt-14 pb-24">
+      <div className="Page container max-w-[1020px] px-4 mx-auto">
         {children}
       </div>
     </div>

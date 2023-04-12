@@ -29,7 +29,7 @@ export const FiltersBlock = memo((props: FiltersBlockProps) => {
   ], []);
 
   return (
-    <div className="filtersBlock">
+    <div className="flex gap-4 sm:gap-8">
       <Select 
         label="По типу:" 
         options={typeOptions}

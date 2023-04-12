@@ -27,10 +27,11 @@ export const Carousel = memo((props: CarouselProps) => {
           <img src={imageSrc} alt="" />
         </Modal>
       )}
-      <h3 className="text-xl font-bold">Кадры из фильма</h3>
-      <div className="movieDetails__carousel-wrap">
+      <h3 className="text-xl sm:text-2xl font-bold mb-4">Кадры из фильма</h3>
+      <div className="flex gap-4 overflow-y-hidden overflow-x-scroll pb-2">
         {images && images.map(image => (
             <img 
+              className="h-[120px] sm:h-[150px] rounded cursor-pointer"
               src={image} 
               alt="" 
               onClick={() => openModal(image)}

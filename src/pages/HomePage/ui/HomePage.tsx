@@ -33,7 +33,7 @@ const HomePage = memo((props: HomePageProps) => {
   
   return (
     <Page className={classNames('HomePage', {}, [className])}>
-      <h1 className="text-2xl sm:text-4xl font-black">Топ-10 самых низкорейтинговых фильмов и сериалов</h1>
+      <h1 className="text-2xl sm:text-4xl font-black text-white">Топ-10 самых низкорейтинговых фильмов и сериалов</h1>
       <FiltersBlock
         type={type}
         years={years}

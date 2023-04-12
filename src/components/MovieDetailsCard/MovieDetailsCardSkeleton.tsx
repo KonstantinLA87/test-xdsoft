@@ -1,6 +1,4 @@
 import { memo } from 'react';
-import { Carousel } from '../Carousel/Carousel';
-
 
 interface MovieDetailsCardProps {
   className?: string;
@@ -8,17 +6,17 @@ interface MovieDetailsCardProps {
 
 export const MovieDetailsCardSkeleton = memo((props: MovieDetailsCardProps) => {
   return (
-    <div className="movieDetails__card shadow-md">
-      <div className="movieDetails__card-top">
-        <div className="movieDetails__avatar">
+    <div className="movieDetails__card w-full bg-white rounded-lg shadow-md">
+      <div className="flex flex-wrap flex-col sm:flex-row gap-7 p-5 sm:p-10 border-b-[1px] border-slate-200 border-solid">
+        <div className="w-[210px] h-[280px] bg-slate-200 overflow-hidden rounded">
         </div>
-        <div className="movieItem__content">
-          <h1 className="text-4xl font-black">Some</h1>
-          <p className="movieDetails__date text-sm text-gray-500">Some</p>
-          <p className="movieDetails__overview text-base">Some</p>
-          <div className="movieDetails__team">
-            <h3 className="text-xl font-bold">Команда</h3>
-            <div className="movieDetails__team-wrap">
+        <div className="flex-1">
+          <h1 className="text-2xl md:text-4xl font-black leading-6 mb-2">Title</h1>
+          <p className="text-sm text-gray-500">date</p>
+          <p className="mt-4 text-base">overview</p>
+          <div className="mt-5">
+            <h3 className="text-lg font-medium">Команда:</h3>
+            <div className="flex flex-wrap gap-7 mb-2 text-sm sm:text-base">
               <ul className="text-gray-400">
                 <li>Режиссер:</li>
                 <li>Сценарий:</li>
@@ -29,9 +27,6 @@ export const MovieDetailsCardSkeleton = memo((props: MovieDetailsCardProps) => {
           </div>
         </div>
       </div>
-      <div className="movieDetails__bottom">
-        {/* <Carousel images={movies[numId]?.photos} /> */}
-      </div>      
     </div>
   );
 });

@@ -37,9 +37,9 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
 
   return (
     <div className="">
-      { label && (<label>{label}</label>) }
+      { label && (<label className="text-white text-sm mr-3">{label}</label>) }
       <select 
-        className="shadow-md"
+        className="shadow-md rounded py-2 px-2 cursor-pointer text-sm sm:text-base"
         value={value}
         onChange={onChangeHandler}
         {...otherProps}

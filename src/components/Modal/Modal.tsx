@@ -20,8 +20,8 @@ export const Modal = memo((props: ModalProps) => {
 
   return (
     <Portal>
-      <div className="Modal" onClick={closeHandler}>
-        <div className="Modal__content" onClick={onContentClick}>
+      <div className="Modal w-full h-screen bg-slate-950/90 flex items-center justify-center fixed left-0 top-0 z-100" onClick={closeHandler}>
+        <div className="Modal__content max-w-[90%]" onClick={onContentClick}>
           {children}
         </div>
       </div>
